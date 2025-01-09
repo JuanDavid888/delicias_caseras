@@ -7,6 +7,7 @@ def desing():
     1. Ver productos
     2. Ver productos por categoria
     3. Actualizar el inventario de un producto
+    4. Agregar un nuevo producto
     0. Salir
 """)
     opc = int(input())

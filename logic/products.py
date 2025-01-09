@@ -20,7 +20,30 @@ def updateInventoryByCode(code_product):
             quantity = int(input("Ingrese la cantidad de productos que desea actualizar: "))
             stock = updateQuantityInventory(product.get("cantidad_en_stock"), quantity)
             product.update({"cantidad_en_stock": stock})
-            print(F"Se actualizo el stock de {code_product} a {stock}")
-        #else: print("El codigo de ese producto no existe en este inventario.")
+            print(f"Se actualizo el stock de {code_product} a {stock}")
     print(saveAll(data))
-    #print(tabulate(data, headers="keys", tablefmt="grid", numalign="center", showindex="always"))
+
+def addProduct(data, new_product):
+    data.append(new_product)
+    return data
+
+def newProduct():
+    print("Añada la informacion del nuevo producto")
+    print(" ")
+    new_product = {}
+    new_product["codigo_producto"] = input("Codigo: ")
+    new_product["nombre"] = input("Nombre: ")
+    new_product["categoria"] = input("Categoria: ")
+    new_product["descripcion"] = input("Descripcion breve: ")
+    new_product["proveedor"] = input("Proveedor: ")
+    new_product["cantidad_en_stock"] = int(input("Stock: "))
+    new_product["precio_venta"] = float(input("Precio de venta: "))
+    new_product["precio_proveedor"] = float(input("Precio de compra: "))
+
+    data = findAll()
+    data = addProduct(data, new_product)
+    saveAll(data)
+    print(" ")
+    print("se añadio el nuevo producto correctamente")
+       
+
